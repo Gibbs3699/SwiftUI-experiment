@@ -43,8 +43,7 @@ struct ContentView: View {
                     Image(systemName: "person.fill")
                     
                     Text("Profile")
-                }
-            
+            }
         }
     }
 }
