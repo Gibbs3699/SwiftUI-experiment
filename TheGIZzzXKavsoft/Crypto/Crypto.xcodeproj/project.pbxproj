@@ -12,6 +12,11 @@
 		DCF857D828D4D20900B3A86F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF857D728D4D20900B3A86F /* Assets.xcassets */; };
 		DCF857DB28D4D20900B3A86F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF857DA28D4D20900B3A86F /* Preview Assets.xcassets */; };
 		DCF857E428D4D38500B3A86F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF857E328D4D38500B3A86F /* HomeView.swift */; };
+		DCF8580228D6FBBC00B3A86F /* LineGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8580128D6FBBC00B3A86F /* LineGraph.swift */; };
+		DCF8580428D6FBFB00B3A86F /* CryptoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8580328D6FBFB00B3A86F /* CryptoModel.swift */; };
+		DCF8580728D6FFC200B3A86F /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8580628D6FFC200B3A86F /* AppViewModel.swift */; };
+		DCF8580A28D7098900B3A86F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = DCF8580928D7098900B3A86F /* SDWebImage */; };
+		DCF8580D28D709FC00B3A86F /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = DCF8580C28D709FC00B3A86F /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,9 @@
 		DCF857D728D4D20900B3A86F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCF857DA28D4D20900B3A86F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DCF857E328D4D38500B3A86F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DCF8580128D6FBBC00B3A86F /* LineGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LineGraph.swift; path = "../../../../../../../Clone Project/Kavsoft/CryptoApp/Shared/View/LineGraph.swift"; sourceTree = "<group>"; };
+		DCF8580328D6FBFB00B3A86F /* CryptoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoModel.swift; sourceTree = "<group>"; };
+		DCF8580628D6FFC200B3A86F /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF8580D28D709FC00B3A86F /* SDWebImageSwiftUI in Frameworks */,
+				DCF8580A28D7098900B3A86F /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,7 @@
 		DCF857D228D4D20600B3A86F /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8580528D6FFAC00B3A86F /* ViewModel */,
 				DCF857E228D4D37600B3A86F /* View */,
 				DCF857E128D4D37100B3A86F /* Model */,
 				DCF857D328D4D20600B3A86F /* CryptoApp.swift */,
@@ -74,6 +85,7 @@
 		DCF857E128D4D37100B3A86F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8580328D6FBFB00B3A86F /* CryptoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -81,9 +93,18 @@
 		DCF857E228D4D37600B3A86F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DCF8580128D6FBBC00B3A86F /* LineGraph.swift */,
 				DCF857E328D4D38500B3A86F /* HomeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DCF8580528D6FFAC00B3A86F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DCF8580628D6FFC200B3A86F /* AppViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +123,10 @@
 			dependencies = (
 			);
 			name = Crypto;
+			packageProductDependencies = (
+				DCF8580928D7098900B3A86F /* SDWebImage */,
+				DCF8580C28D709FC00B3A86F /* SDWebImageSwiftUI */,
+			);
 			productName = Crypto;
 			productReference = DCF857D028D4D20600B3A86F /* Crypto.app */;
 			productType = "com.apple.product-type.application";
@@ -130,6 +155,10 @@
 				Base,
 			);
 			mainGroup = DCF857C728D4D20600B3A86F;
+			packageReferences = (
+				DCF8580828D7098900B3A86F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				DCF8580B28D709FC00B3A86F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = DCF857D128D4D20600B3A86F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -156,9 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF8580228D6FBBC00B3A86F /* LineGraph.swift in Sources */,
 				DCF857E428D4D38500B3A86F /* HomeView.swift in Sources */,
 				DCF857D628D4D20600B3A86F /* ContentView.swift in Sources */,
 				DCF857D428D4D20600B3A86F /* CryptoApp.swift in Sources */,
+				DCF8580428D6FBFB00B3A86F /* CryptoModel.swift in Sources */,
+				DCF8580728D6FFC200B3A86F /* AppViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +391,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCF8580828D7098900B3A86F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		DCF8580B28D709FC00B3A86F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DCF8580928D7098900B3A86F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCF8580828D7098900B3A86F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		DCF8580C28D709FC00B3A86F /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCF8580B28D709FC00B3A86F /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DCF857C828D4D20600B3A86F /* Project object */;
 }
