@@ -14,9 +14,11 @@ struct HomeFeedView: View {
                 VStack {
                     StoriesView()
                     
-                    ForEach(0...30, id: \.self) { num in
-                        PostView()
-                            .padding(.bottom, 20)
+                    ForEach(1...5, id: \.self) { num in
+                        PostView(userImageName: "user\(num)",
+                                 imageName: "image\(num)"
+                        )
+                        .padding(.bottom, 20)
                     }
                 }
             }
@@ -26,12 +28,17 @@ struct HomeFeedView: View {
 }
 
 struct PostView: View {
+    let userImageName: String
+    let imageName: String
+    
     var body: some View {
         VStack {
-            PostHeaderView()
+            PostHeaderView(userImageName: userImageName)
             
             HStack {
-                Image("foo")
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: 430, height: 430, alignment: .center)
                 .background(Color.gray)
             }
@@ -74,14 +81,16 @@ struct PostView: View {
 }
 
 struct PostHeaderView: View {
+    let userImageName: String
+    
     var body: some View {
         
         HStack {
-            Image(systemName: "person.circle")
+            Image(userImageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40, alignment: .center)
-                .foregroundColor(Color(.label))
+                .cornerRadius(20)
             
             Text("user")
                 .foregroundColor(Color(.label))

@@ -16,6 +16,7 @@ struct ContentView: View {
                     
                     Text("Home")
                 }
+                .preferredColorScheme(.dark)
             
             ExploreView()
                 .tabItem {
@@ -23,6 +24,7 @@ struct ContentView: View {
                     
                     Text("Explore")
                 }
+                .preferredColorScheme(.dark)
             
             CameraView()
                 .tabItem {
@@ -30,6 +32,7 @@ struct ContentView: View {
                     
                     Text("Camera")
                 }
+                .preferredColorScheme(.dark)
             
             NotificationView()
                 .tabItem {
@@ -37,6 +40,7 @@ struct ContentView: View {
                     
                     Text("Notifications")
                 }
+                .preferredColorScheme(.dark)
             
             ProfileView()
                 .tabItem {
@@ -44,6 +48,7 @@ struct ContentView: View {
                     
                     Text("Profile")
             }
+                .preferredColorScheme(.dark)
         }
     }
 }
