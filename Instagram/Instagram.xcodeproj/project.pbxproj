@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC4B551D28DB639B00B171F5 /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4B551C28DB639B00B171F5 /* CaptureView.swift */; };
 		DC54F32E28D22F61008B0AD7 /* InstagramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54F32D28D22F61008B0AD7 /* InstagramApp.swift */; };
 		DC54F33028D22F61008B0AD7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC54F32F28D22F61008B0AD7 /* ContentView.swift */; };
 		DC54F33228D22F64008B0AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC54F33128D22F64008B0AD7 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC4B551C28DB639B00B171F5 /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
 		DC54F32A28D22F61008B0AD7 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC54F32D28D22F61008B0AD7 /* InstagramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstagramApp.swift; sourceTree = "<group>"; };
 		DC54F32F28D22F61008B0AD7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC32B21F28DB618100723475 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				DC54F33F28D30214008B0AD7 /* CameraView.swift */,
+				DC4B551C28DB639B00B171F5 /* CaptureView.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		DC54F32128D22F61008B0AD7 = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +74,11 @@
 		DC54F32C28D22F61008B0AD7 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				DC32B21F28DB618100723475 /* Camera */,
 				DCF857C428D4439B00B3A86F /* Home */,
 				DC54F32D28D22F61008B0AD7 /* InstagramApp.swift */,
 				DC54F32F28D22F61008B0AD7 /* ContentView.swift */,
 				DC54F33D28D30204008B0AD7 /* ExploreView.swift */,
-				DC54F33F28D30214008B0AD7 /* CameraView.swift */,
 				DC54F34128D30223008B0AD7 /* NotificationView.swift */,
 				DC54F34328D3022D008B0AD7 /* ProfileView.swift */,
 				DC54F33128D22F64008B0AD7 /* Assets.xcassets */,
@@ -165,6 +176,7 @@
 			files = (
 				DCF857C628D443B800B3A86F /* StoriesView.swift in Sources */,
 				DC54F33028D22F61008B0AD7 /* ContentView.swift in Sources */,
+				DC4B551D28DB639B00B171F5 /* CaptureView.swift in Sources */,
 				DC54F32E28D22F61008B0AD7 /* InstagramApp.swift in Sources */,
 				DC54F33E28D30204008B0AD7 /* ExploreView.swift in Sources */,
 				DC54F34028D30214008B0AD7 /* CameraView.swift in Sources */,
