@@ -11,6 +11,8 @@
 		DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD154A2A235D3F0004661C /* ContentView.swift */; };
 		DCFD154D2A235D400004661C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFD154C2A235D400004661C /* Assets.xcassets */; };
 		DCFD15502A235D400004661C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFD154F2A235D400004661C /* Preview Assets.xcassets */; };
+		DCFD155A2A235E6B0004661C /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD15592A235E6B0004661C /* CharactersModel.swift */; };
+		DCFD155D2A23BA440004661C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD155C2A23BA440004661C /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		DCFD154A2A235D3F0004661C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCFD154C2A235D400004661C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCFD154F2A235D400004661C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DCFD15592A235E6B0004661C /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
+		DCFD155C2A23BA440004661C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,8 @@
 		DCFD15472A235D3F0004661C /* Game Characters */ = {
 			isa = PBXGroup;
 			children = (
+				DCFD155B2A23BA350004661C /* Views */,
+				DCFD15562A235E210004661C /* Models */,
 				DCFD15482A235D3F0004661C /* Game_CharactersApp.swift */,
 				DCFD154A2A235D3F0004661C /* ContentView.swift */,
 				DCFD154C2A235D400004661C /* Assets.xcassets */,
@@ -65,6 +71,22 @@
 				DCFD154F2A235D400004661C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DCFD15562A235E210004661C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DCFD15592A235E6B0004661C /* CharactersModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DCFD155B2A23BA350004661C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DCFD155C2A23BA440004661C /* Home.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCFD155A2A235E6B0004661C /* CharactersModel.swift in Sources */,
 				DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */,
+				DCFD155D2A23BA440004661C /* Home.swift in Sources */,
 				DCFD15492A235D3F0004661C /* Game_CharactersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
