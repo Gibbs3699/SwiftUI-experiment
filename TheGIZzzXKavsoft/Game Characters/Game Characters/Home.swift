@@ -10,12 +10,54 @@ import SwiftUI
 struct Home: View {
     
     @State var currentIndex: Int = 0
+    @State var currentTab: String = "Films"
+    
+    @Namespace var animation
     @Environment(\.colorScheme) var scheme
+    
+    var categories: [String] = ["Films","Localities"]
     
     var body: some View {
         ZStack {
             backgroundView()
+            
+            VStack {
+                navigationBar()
+            }
         }
+    }
+    
+    @ViewBuilder
+    func navigationBar()->some View{
+        HStack(spacing: 0){
+            ForEach(categories,id: \.self){tab in
+                Button {
+                    withAnimation{
+                        currentTab = tab
+                    }
+                } label: {
+                 
+                    Text(tab)
+                        .foregroundColor(.white)
+                        .padding(.vertical,6)
+                        .padding(.horizontal,20)
+                        .background {
+                            if currentTab == tab {
+                                Capsule()
+                                    .fill(.regularMaterial)
+                                    .environment(\.colorScheme, .dark)
+                                    .matchedGeometryEffect(id: "TAB", in: animation)
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.7, blendDuration: 0.7)) {
+                                currentTab = tab
+                            }
+                        }
+                }
+            }
+        }
+        .padding()
     }
     
     @ViewBuilder
