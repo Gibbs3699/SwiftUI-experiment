@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC83AAB62A23C5CD005A3C99 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83AAB52A23C5CD005A3C99 /* Home.swift */; };
+		DC83AAB82A25FC89005A3C99 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83AAB72A25FC89005A3C99 /* SnapCarousel.swift */; };
 		DCFD15492A235D3F0004661C /* Game_CharactersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD15482A235D3F0004661C /* Game_CharactersApp.swift */; };
 		DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD154A2A235D3F0004661C /* ContentView.swift */; };
 		DCFD154D2A235D400004661C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFD154C2A235D400004661C /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		DC83AAB52A23C5CD005A3C99 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Game Characters/Home.swift"; sourceTree = SOURCE_ROOT; };
+		DC83AAB72A25FC89005A3C99 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnapCarousel.swift; path = "Game Characters/SnapCarousel.swift"; sourceTree = SOURCE_ROOT; };
 		DCFD15452A235D3F0004661C /* Game Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCFD15482A235D3F0004661C /* Game_CharactersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game_CharactersApp.swift; sourceTree = "<group>"; };
 		DCFD154A2A235D3F0004661C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				DC83AAB52A23C5CD005A3C99 /* Home.swift */,
+				DC83AAB72A25FC89005A3C99 /* SnapCarousel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */,
 				DC83AAB62A23C5CD005A3C99 /* Home.swift in Sources */,
 				DCFD15492A235D3F0004661C /* Game_CharactersApp.swift in Sources */,
+				DC83AAB82A25FC89005A3C99 /* SnapCarousel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
