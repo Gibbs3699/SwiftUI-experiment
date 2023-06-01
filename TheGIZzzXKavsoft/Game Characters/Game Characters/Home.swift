@@ -53,6 +53,31 @@ struct Home: View {
                 .padding(.top, 70)
                 
                 customIndicator()
+                
+                HStack{
+                    Text("Popular")
+                        .font(.title3.bold())
+                    
+                    Spacer()
+                    
+                    Button("See More"){}
+                        .font(.system(size: 16, weight: .semibold))
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(characters) { character in
+                            Image(character.artwork)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 120)
+                                .cornerRadius(15)
+                            
+                        }
+                    }
+                    .padding()
+                }
             }
         }
     }
@@ -121,7 +146,6 @@ struct Home: View {
             .animation(.easeInOut, value: currentIndex)
             
             let color: Color = (scheme == .dark ? .black : .white)
-            // Custom Gradient
             LinearGradient(colors: [
                 .black,
                 .clear,
@@ -132,7 +156,6 @@ struct Home: View {
                 color
             ], startPoint: .top, endPoint: .bottom)
             
-            // Blurred Overlay
             Rectangle()
                 .fill(.ultraThinMaterial)
         }
@@ -143,5 +166,6 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+            .preferredColorScheme(.dark)
     }
 }
