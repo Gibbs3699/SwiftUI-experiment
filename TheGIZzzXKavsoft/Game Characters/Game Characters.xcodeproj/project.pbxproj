@@ -13,7 +13,7 @@
 		DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD154A2A235D3F0004661C /* ContentView.swift */; };
 		DCFD154D2A235D400004661C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFD154C2A235D400004661C /* Assets.xcassets */; };
 		DCFD15502A235D400004661C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCFD154F2A235D400004661C /* Preview Assets.xcassets */; };
-		DCFD155A2A235E6B0004661C /* CharactersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD15592A235E6B0004661C /* CharactersModel.swift */; };
+		DCFD155A2A235E6B0004661C /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFD15592A235E6B0004661C /* Characters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +24,7 @@
 		DCFD154A2A235D3F0004661C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DCFD154C2A235D400004661C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCFD154F2A235D400004661C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		DCFD15592A235E6B0004661C /* CharactersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersModel.swift; sourceTree = "<group>"; };
+		DCFD15592A235E6B0004661C /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 		DCFD15562A235E210004661C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DCFD15592A235E6B0004661C /* CharactersModel.swift */,
+				DCFD15592A235E6B0004661C /* Characters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,7 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCFD155A2A235E6B0004661C /* CharactersModel.swift in Sources */,
+				DCFD155A2A235E6B0004661C /* Characters.swift in Sources */,
 				DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */,
 				DC83AAB62A23C5CD005A3C99 /* Home.swift in Sources */,
 				DCFD15492A235D3F0004661C /* Game_CharactersApp.swift in Sources */,
