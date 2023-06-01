@@ -11,6 +11,9 @@ struct Home: View {
     
     @State var currentIndex: Int = 0
     @State var currentTab: String = "Films"
+    @State var showDetailView: Bool = false
+    @State var detailCharacter: Characters?
+    @State var currentCardSize: CGSize = .zero
     
     @Namespace var animation
     @Environment(\.colorScheme) var scheme
@@ -22,8 +25,47 @@ struct Home: View {
             backgroundView()
             
             VStack {
+                
                 navigationBar()
+                
+                SnapCarousel(spacing: 20, trailingSpace: 110, index: $currentIndex, items: characters) { character in
+                    
+                    GeometryReader { proxy in
+                       
+                        let size = proxy.size
+                        
+                        Image(character.artwork)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: size.width, height: size.height)
+                            .cornerRadius(15)
+                            .matchedGeometryEffect(id: character.id, in: animation)
+                            .onTapGesture {
+                                currentCardSize = size
+                                detailCharacter = character
+                                withAnimation {
+                                    showDetailView.toggle()
+                                }
+                            }
+                        
+                    }
+                }
+                .padding(.top, 70)
+                
+                customIndicator()
             }
+        }
+    }
+    
+    @ViewBuilder
+    func customIndicator()-> some View {
+        HStack {
+            ForEach(characters.indices ,id: \.self){ index in
+                Circle()
+                    .fill(currentIndex == index ? .blue : .gray.opacity(0.5))
+                    .frame(width: currentIndex == index ? 10 : 6, height: currentIndex == index ? 10 : 6)
+            }
+            .animation(.easeInOut, value: currentIndex)
         }
     }
     
