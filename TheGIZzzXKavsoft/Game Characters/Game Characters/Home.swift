@@ -18,7 +18,7 @@ struct Home: View {
     @Namespace var animation
     @Environment(\.colorScheme) var scheme
     
-    var categories: [String] = ["Characters","Populars"]
+    var categories: [String] = ["Champions","Regions"]
     
     var body: some View {
         ZStack {
