@@ -7,8 +7,8 @@
 
 import Foundation
 
-// MARK: - CharactersModel
-struct CharactersModel: Codable {
+// MARK: - CharacterModelValue
+struct CharacterModelValue: Identifiable, Codable {
     let version: Version
     let id, key, name, title: String
     let blurb: String
@@ -58,4 +58,4 @@ enum Version: String, Codable {
     case the1331 = "13.3.1"
 }
 
-typealias Welcome = [String: CharactersModel]
+typealias CharactersModel = [String: CharacterModelValue]
