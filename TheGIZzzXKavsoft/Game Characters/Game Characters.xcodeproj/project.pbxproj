@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC2127C02A3059D700CE139B /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2127BF2A3059D700CE139B /* CharacterViewModel.swift */; };
 		DC83AAB62A23C5CD005A3C99 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83AAB52A23C5CD005A3C99 /* Home.swift */; };
 		DC83AAB82A25FC89005A3C99 /* SnapCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83AAB72A25FC89005A3C99 /* SnapCarousel.swift */; };
 		DC83AABB2A2CD089005A3C99 /* CharactersDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC83AABA2A2CD089005A3C99 /* CharactersDataService.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DC2127BF2A3059D700CE139B /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
 		DC83AAB52A23C5CD005A3C99 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Home.swift; path = "Game Characters/Home.swift"; sourceTree = SOURCE_ROOT; };
 		DC83AAB72A25FC89005A3C99 /* SnapCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SnapCarousel.swift; path = "Game Characters/SnapCarousel.swift"; sourceTree = SOURCE_ROOT; };
 		DC83AABA2A2CD089005A3C99 /* CharactersDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersDataService.swift; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC2127BE2A3059C600CE139B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DC2127BF2A3059D700CE139B /* CharacterViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		DC83AAB92A2CD055005A3C99 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		DCFD15472A235D3F0004661C /* Game Characters */ = {
 			isa = PBXGroup;
 			children = (
+				DC2127BE2A3059C600CE139B /* ViewModels */,
 				DCD1FA232A2F8A98009F5BD3 /* Utilities */,
 				DC83AAB92A2CD055005A3C99 /* Services */,
 				DCFD155B2A23BA350004661C /* Views */,
@@ -188,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCFD155A2A235E6B0004661C /* Characters.swift in Sources */,
+				DC2127C02A3059D700CE139B /* CharacterViewModel.swift in Sources */,
 				DCFD154B2A235D3F0004661C /* ContentView.swift in Sources */,
 				DC83AABD2A2E3A2F005A3C99 /* CharactersModel.swift in Sources */,
 				DC83AAB62A23C5CD005A3C99 /* Home.swift in Sources */,
