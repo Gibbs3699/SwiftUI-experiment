@@ -11,7 +11,7 @@ import Combine
 class NetworkingManager {
     
     enum NetworkingError: LocalizedError {
-        case badURLResponse(url: URL)
+        case badURLResponse(url: URLRequest)
         case unknown
         
         var errorDescription: String? {
@@ -22,7 +22,7 @@ class NetworkingManager {
         }
     }
     
-    static func download(url: URL) -> AnyPublisher<Data, any Error> {
+    static func download(url: URLRequest) -> AnyPublisher<Data, any Error> {
         return URLSession.shared.dataTaskPublisher(for: url)
 //            .subscribe(on: DispatchQueue.global(qos: .default)) app will handle this
             .tryMap( { try handleURLResponse(output: $0, url: url)})
@@ -30,7 +30,7 @@ class NetworkingManager {
             .eraseToAnyPublisher()
     }
     
-    static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
+    static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URLRequest) throws -> Data {
 //        throw NetworkingError.badURLResponse(url: url)
         guard let response = output.response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300 else {
