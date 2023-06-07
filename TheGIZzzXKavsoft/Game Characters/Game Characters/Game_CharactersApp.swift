@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Game_CharactersApp: App {
+    
+    @StateObject private var vm = CharacterViewModel()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(vm)
         }
     }
 }
