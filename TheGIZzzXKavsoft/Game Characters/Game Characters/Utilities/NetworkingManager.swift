@@ -11,7 +11,7 @@ import Combine
 class NetworkingManager {
     
     enum NetworkingError: LocalizedError {
-        case badURLResponse(url: URLRequest)
+        case badURLResponse(url: URL)
         case unknown
         
         var errorDescription: String? {
@@ -22,15 +22,28 @@ class NetworkingManager {
         }
     }
     
-    static func download(url: URLRequest) -> AnyPublisher<Data, any Error> {
-        return URLSession.shared.dataTaskPublisher(for: url)
+    static func download(url: URL, header: [String : String]? = nil, requestMethod: String? = nil) -> AnyPublisher<Data, any Error> {
+        
+        guard let header = header, let requestMethod = requestMethod else {
+            return URLSession.shared.dataTaskPublisher(for: url)
+    //            .subscribe(on: DispatchQueue.global(qos: .default)) app will handle this
+                .tryMap( { try handleURLResponse(output: $0, url: url)})
+                .retry(3)
+                .eraseToAnyPublisher()
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = requestMethod
+        request.allHTTPHeaderFields = header
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
 //            .subscribe(on: DispatchQueue.global(qos: .default)) app will handle this
             .tryMap( { try handleURLResponse(output: $0, url: url)})
             .retry(3)
             .eraseToAnyPublisher()
     }
     
-    static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URLRequest) throws -> Data {
+    static func handleURLResponse(output: URLSession.DataTaskPublisher.Output, url: URL) throws -> Data {
 //        throw NetworkingError.badURLResponse(url: url)
         guard let response = output.response as? HTTPURLResponse,
               response.statusCode >= 200 && response.statusCode < 300 else {
