@@ -10,7 +10,7 @@ import Combine
 
 class CharactersDataService: ObservableObject {
     
-    @Published var allCharacters: [String : CharactersModel] = [:]
+    @Published var allCharacters: [ChampionElement] = []
     
     var characterSubscription: AnyCancellable?
     
@@ -20,24 +20,19 @@ class CharactersDataService: ObservableObject {
     
     func getCharacters() {
     
-        guard let url = URL(string: "https://league-of-legends-api1.p.rapidapi.com/champions") else { return }
-        
-        var request = URLRequest(url: url)
+        guard let url = URL(string: "https://league-of-legends-champions.p.rapidapi.com/champions/en-us?page=0&size=10") else { return }
 
         let headers = [
             "X-RapidAPI-Key": "a8782a29ebmsh71e6f931300a16ap189d70jsnb856687d4a7f",
-            "X-RapidAPI-Host": "league-of-legends-api1.p.rapidapi.com"
+            "X-RapidAPI-Host": "league-of-legends-champions.p.rapidapi.com"
         ]
 
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-
-        characterSubscription = NetworkingManager.download(url: request)
+        characterSubscription = NetworkingManager.download(url: url, header: headers, requestMethod: "GET")
             .subscribe(on: DispatchQueue.global(qos: .default))
-            .decode(type: CharactersModel.self, decoder: JSONDecoder())
+            .decode(type: CharacterModel.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: NetworkingManager.handleCompletion, receiveValue: { [weak self] (returnedCharacters) in
-//                self?.allCoins = returnedCharacters
+                self?.allCharacters = returnedCharacters.champions
                 print("returnedCharacters: \(returnedCharacters)")
                 self?.characterSubscription?.cancel()
             })

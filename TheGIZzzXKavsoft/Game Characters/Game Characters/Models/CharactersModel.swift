@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - CharacterModel
 struct CharacterModel: Codable {
     let champions: [ChampionElement]

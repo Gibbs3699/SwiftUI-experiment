@@ -10,7 +10,7 @@ import Combine
 
 class CharacterViewModel: ObservableObject {
     
-    @Published var allCharacters: [String : CharactersModel] = [:]
+    @Published var allCharacters: [ChampionElement] = []
     
     private var charactersDataService = CharactersDataService()
     private var cancellable = Set<AnyCancellable>()
