@@ -7,55 +7,62 @@
 
 import Foundation
 
-// MARK: - CharacterModelValue
-struct CharacterModelValue: Identifiable, Codable {
-    let version: Version
-    let id, key, name, title: String
-    let blurb: String
-    let info: Info
-    let image: Image
-    let tags: [Tag]
-    let partype: String
-    let stats: [String: Double]
+import Foundation
+
+// MARK: - CharacterModel
+struct CharacterModel: Codable {
+    let champions: [ChampionElement]
+    let page: Page
 }
 
-// MARK: - Image
-struct Image: Codable {
-    let full: String
-    let sprite: Sprite
-    let group: Group
-    let x, y, w, h: Int
+// MARK: - ChampionElement
+struct ChampionElement: Codable {
+    let node: Node
 }
 
-enum Group: String, Codable {
-    case champion = "champion"
+// MARK: - Node
+struct Node: Codable {
+    let publishDetails: PublishDetails
+    let uid, url, championName: String
+    let championSplash: String
+    let recommendedRoles: [String]
+    let difficulty: Int
+    let champion: NodeChampion
+
+    enum CodingKeys: String, CodingKey {
+        case publishDetails = "publish_details"
+        case uid, url
+        case championName = "champion_name"
+        case championSplash = "champion_splash"
+        case recommendedRoles = "recommended_roles"
+        case difficulty, champion
+    }
 }
 
-enum Sprite: String, Codable {
-    case champion0PNG = "champion0.png"
-    case champion1PNG = "champion1.png"
-    case champion2PNG = "champion2.png"
-    case champion3PNG = "champion3.png"
-    case champion4PNG = "champion4.png"
-    case champion5PNG = "champion5.png"
+// MARK: - NodeChampion
+struct NodeChampion: Codable {
+    let profileImage: ProfileImage?
+
+    enum CodingKeys: String, CodingKey {
+        case profileImage = "profile_image"
+    }
 }
 
-// MARK: - Info
-struct Info: Codable {
-    let attack, defense, magic, difficulty: Int
+// MARK: - ProfileImage
+struct ProfileImage: Codable {
+    let url: String
 }
 
-enum Tag: String, Codable {
-    case assassin = "Assassin"
-    case fighter = "Fighter"
-    case mage = "Mage"
-    case marksman = "Marksman"
-    case support = "Support"
-    case tank = "Tank"
+// MARK: - PublishDetails
+struct PublishDetails: Codable {
+    let locale: Locale
 }
 
-enum Version: String, Codable {
-    case the1331 = "13.3.1"
+enum Locale: String, Codable {
+    case enUs = "en-us"
 }
 
-typealias CharactersModel = [String: CharacterModelValue]
+// MARK: - Page
+struct Page: Codable {
+    let start, end, totalCount: Int
+}
