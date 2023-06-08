@@ -18,6 +18,8 @@ struct Home: View {
     @Namespace var animation
     @Environment(\.colorScheme) var scheme
     
+    @EnvironmentObject private var vm: CharacterViewModel
+    
     var categories: [String] = ["Champions","Regions"]
     
     var body: some View {
@@ -34,19 +36,19 @@ struct Home: View {
                        
                         let size = proxy.size
                         
-                        Image(character.artwork)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: size.width, height: size.height)
-                            .cornerRadius(15)
-                            .matchedGeometryEffect(id: character.id, in: animation)
-                            .onTapGesture {
-                                currentCardSize = size
-                                detailCharacter = character
-                                withAnimation {
-                                    showDetailView.toggle()
-                                }
-                            }
+//                        Image(vm.allCharacters[proxy].image)
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fill)
+//                            .frame(width: size.width, height: size.height)
+//                            .cornerRadius(15)
+//                            .matchedGeometryEffect(id: character.id, in: animation)
+//                            .onTapGesture {
+//                                currentCardSize = size
+//                                detailCharacter = character
+//                                withAnimation {
+//                                    showDetailView.toggle()
+//                                }
+//                            }
                         
                     }
                 }
@@ -67,13 +69,13 @@ struct Home: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(characters) { character in
-                            Image(character.artwork)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 100, height: 120)
-                                .cornerRadius(15)
-                            
+                        ForEach(vm.allCharacters, id: \.node.uid) { character in
+//                            Image(character.node.url)
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fill)
+//                                .frame(width: 100, height: 120)
+//                                .cornerRadius(15)
+                            Text("\(character.node.championName)")
                         }
                     }
                     .padding()
@@ -133,13 +135,14 @@ struct Home: View {
             let size = proxy.size
             
             TabView(selection: $currentIndex) {
-                ForEach(characters.indices,id: \.self){index in
-                    Image(characters[index].artwork)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: size.width, height: size.height)
-                        .clipped()
-                        .tag(index)
+                ForEach(vm.allCharacters.indices,id: \.self){index in
+//                    Image(vm.allCharacters[index].values[index].image.full)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: size.width, height: size.height)
+//                        .clipped()
+//                        .tag(index)
+//                    Text("characters: \(vm.allCharacters[index].name)")
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -166,6 +169,7 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
+            .environmentObject(dev.characterVM)
             .preferredColorScheme(.dark)
     }
 }
