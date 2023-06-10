@@ -14,7 +14,8 @@ struct CharacterModel: Codable {
 }
 
 // MARK: - ChampionElement
-struct ChampionElement: Codable {
+struct ChampionElement: Identifiable, Codable {
+    var id = UUID().uuidString
     let node: Node
 }
 

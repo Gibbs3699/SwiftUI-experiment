@@ -16,7 +16,7 @@ class CharacterViewModel: ObservableObject {
     private var cancellable = Set<AnyCancellable>()
     
     init() {
-        addSubscriber()
+        self.addSubscriber()
     }
     
     private func addSubscriber() {

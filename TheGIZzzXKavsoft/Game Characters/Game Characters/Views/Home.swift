@@ -30,25 +30,22 @@ struct Home: View {
                 
                 navigationBar()
                 
-                SnapCarousel(spacing: 20, trailingSpace: 110, index: $currentIndex, items: characters) { character in
+                SnapCarousel(spacing: 20, trailingSpace: 110, index: $currentIndex, items: vm.allCharacters) { character in
                     
                     GeometryReader { proxy in
                        
                         let size = proxy.size
                         
-//                        Image(vm.allCharacters[proxy].image)
-//                            .resizable()
-//                            .aspectRatio(contentMode: .fill)
-//                            .frame(width: size.width, height: size.height)
-//                            .cornerRadius(15)
-//                            .matchedGeometryEffect(id: character.id, in: animation)
-//                            .onTapGesture {
-//                                currentCardSize = size
-//                                detailCharacter = character
-//                                withAnimation {
-//                                    showDetailView.toggle()
-//                                }
-//                            }
+                        CharacterImage(character: character)
+                            .frame(width: size.width, height: size.height)
+                            .cornerRadius(15)
+                            .matchedGeometryEffect(id: character.node.uid, in: animation)
+                            .onTapGesture {
+                                currentCardSize = size
+                                withAnimation {
+                                    showDetailView.toggle()
+                                }
+                            }
                         
                     }
                 }
@@ -70,12 +67,9 @@ struct Home: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(vm.allCharacters, id: \.node.uid) { character in
-//                            Image(character.node.url)
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fill)
-//                                .frame(width: 100, height: 120)
-//                                .cornerRadius(15)
-                            Text("\(character.node.championName)")
+                            CharacterImage(character: character)
+                                .frame(width: 100, height: 120)
+                                .cornerRadius(15)
                         }
                     }
                     .padding()
@@ -136,13 +130,12 @@ struct Home: View {
             
             TabView(selection: $currentIndex) {
                 ForEach(vm.allCharacters.indices,id: \.self){index in
-//                    Image(vm.allCharacters[index].values[index].image.full)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fill)
-//                        .frame(width: size.width, height: size.height)
-//                        .clipped()
-//                        .tag(index)
-//                    Text("characters: \(vm.allCharacters[index].name)")
+                    Image(vm.allCharacters[index].node.champion.profileImage?.url ?? "questionmark")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: size.width, height: size.height)
+                        .clipped()
+                        .tag(index)
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
@@ -169,7 +162,7 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home()
-            .environmentObject(dev.characterVM)
+            .environmentObject(dev.homeVM)
             .preferredColorScheme(.dark)
     }
 }
